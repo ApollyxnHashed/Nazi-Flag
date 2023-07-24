@@ -1,0 +1,18 @@
+local mensagens = {
+    "⚪🔴🔴⚪⚪⚪⚪",
+    "⚪🔴🔴⚪🔴🔴🔴",
+    "⚪🔴🔴⚪🔴🔴🔴",
+    "⚪⚪⚪⚪⚪⚪⚪",
+    "🔴🔴🔴⚪🔴🔴⚪",
+    "🔴🔴🔴⚪🔴🔴⚪",
+    "⚪⚪⚪⚪🔴🔴⚪"
+}
+
+local function EnviarMensagens()
+    for _, mensagem in ipairs(mensagens) do
+        game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(mensagem, "All")
+        wait(0.1)
+    end
+end
+
+EnviarMensagens()
